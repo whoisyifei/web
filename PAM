@@ -1,3 +1,239 @@
-WEBBBBBBBBBB
--------------
-PAMMMMM
+<!--
+Single-file responsive landing page inspired by the layout you linked.
+Notes:
+- No images of nurses or people included.
+- The phrase "Pantai Hospital" is NOT used anywhere.
+- The word "Cheras" is removed.
+- Replace or add real images by swapping the placeholder SVG or background.
+- Save this as index.html and open in a browser.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Medical Centre</title>
+  <meta name="description" content="Medical Centre — Specialist clinics, emergency care, diagnostics and patient services." />
+  <style>
+    :root{
+      --accent:#0b6a9e;
+      --accent-2:#0ea5a3;
+      --muted:#6b7280;
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:#0f172a}
+    header{background:linear-gradient(180deg,var(--card),transparent);backdrop-filter: blur(6px);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(15,23,42,0.04)}
+    .container{max-width:1100px;margin:0 auto;padding:18px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    nav a{color:inherit;text-decoration:none;margin-left:18px;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none}
+
+    main .hero{padding:42px 0;display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero .card{background:var(--card);padding:26px;border-radius:var(--radius);box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+    .hero h1{font-size:28px;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06)}
+    .search button{background:var(--accent);color:#fff;padding:12px 14px;border-radius:10px;border:none}
+
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+    .feature{background:linear-gradient(180deg,rgba(14,165,163,0.06),transparent);padding:14px;border-radius:12px;display:flex;gap:12px;align-items:center}
+    .feature svg{width:44px;height:44px;border-radius:10px;background:#fff;padding:8px}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:34px 0 12px}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card-sm{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.04)}
+
+    footer{margin-top:36px;padding:26px 0;border-top:1px solid rgba(15,23,42,0.04);background:transparent}
+    footer .grid{display:grid;grid-template-columns:1fr 240px;gap:20px;align-items:start}
+
+    /* responsiveness */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:1fr}
+      nav a{display:none}
+    }
+    @media (max-width:520px){
+      .features{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .logo{width:36px;height:36px}
+      .hero h1{font-size:22px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .pill{background:rgba(11,106,158,0.08);color:var(--accent);display:inline-block;padding:6px 10px;border-radius:999px;font-weight:600}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">MC</div>
+        <div>
+          <div style="font-weight:700">Medical Centre</div>
+          <div style="font-size:12px;color:var(--muted)">Specialist care & diagnostics</div>
+        </div>
+      </div>
+      <nav aria-label="main navigation">
+        <a href="#services">Services</a>
+        <a href="#doctors">Clinics</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#book">Book Appointment</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <div class="pill">Open today • 8:00 – 22:00</div>
+          <div style="font-size:12px;color:var(--muted)">Call: +60 3-1234 5678</div>
+        </div>
+        <h1>Quality medical care</h1>
+        <p>Accessible outpatient clinics, emergency services, imaging, and laboratory diagnostics — with experienced specialists and patient-focused care.</p>
+
+        <div class="search" style="margin-top:18px">
+          <input type="text" placeholder="Search services, doctors or departments" aria-label="search" />
+          <button>Search</button>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15 8H9L12 2Z" fill="currentColor"/></svg>
+            <div>
+              <div style="font-weight:700">Emergency Care</div>
+              <div class="muted" style="font-size:13px">24/7 urgent services</div>
+            </div>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="16" height="16" rx="3" fill="currentColor"/></svg>
+            <div>
+              <div style="font-weight:700">Imaging & Lab</div>
+              <div class="muted" style="font-size:13px">X‑ray, CT, ultrasound</div>
+            </div>
+          </div>
+          <div class="feature">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>
+            <div>
+              <div style="font-weight:700">Specialist Clinics</div>
+              <div class="muted" style="font-size:13px">Cardio • Paediatrics • Ortho</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- right column: appointment card -->
+      <aside>
+        <div class="card">
+          <h3 style="margin-top:0">Book an appointment</h3>
+          <p class="muted">Choose clinic, date and preferred time. We will confirm by call or email.</p>
+          <form style="margin-top:10px;display:grid;gap:10px">
+            <select aria-label="department">
+              <option>General Practice</option>
+              <option>Cardiology</option>
+              <option>Radiology</option>
+            </select>
+            <input type="date" />
+            <input type="time" />
+            <input type="text" placeholder="Full name" />
+            <input type="tel" placeholder="Phone" />
+            <button type="submit" style="background:var(--accent);color:#fff;padding:10px;border-radius:10px;border:none">Request Booking</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <div class="section-title">
+      <h2 style="margin:0">Our services</h2>
+      <div class="muted">Comprehensive care across disciplines</div>
+    </div>
+
+    <section class="cards">
+      <div class="card-sm">
+        <h3 style="margin-top:0">Outpatient Clinics</h3>
+        <p class="muted">Consultations with specialists and primary care physicians.</p>
+      </div>
+      <div class="card-sm">
+        <h3 style="margin-top:0">Diagnostic Imaging</h3>
+        <p class="muted">High-resolution imaging with fast turnaround.</p>
+      </div>
+      <div class="card-sm">
+        <h3 style="margin-top:0">Laboratory</h3>
+        <p class="muted">Comprehensive testing and rapid reporting.</p>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2 style="margin:0" id="doctors">Clinics & Doctors</h2>
+      <div class="muted">Experienced and accredited practitioners</div>
+    </div>
+
+    <section class="cards">
+      <div class="card-sm">
+        <h4 style="margin:0">Dr. A. Rahman</h4>
+        <div class="muted">Cardiologist • 15 yrs experience</div>
+      </div>
+      <div class="card-sm">
+        <h4 style="margin:0">Dr. S. Lim</h4>
+        <div class="muted">Paediatrics • 10 yrs experience</div>
+      </div>
+      <div class="card-sm">
+        <h4 style="margin:0">Dr. M. Singh</h4>
+        <div class="muted">Orthopaedics • 12 yrs experience</div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <h2 style="margin:0" id="contact">Contact & Location</h2>
+      <div class="muted">Find us</div>
+    </div>
+
+    <section style="display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start">
+      <div class="card">
+        <h3 style="margin-top:0">Get in touch</h3>
+        <p class="muted">Phone: +60 3-1234 5678 • Email: info@mc.example</p>
+        <p class="muted">Address: Jalan Example, Kuala Lumpur</p>
+        <div style="margin-top:12px">
+          <h4 style="margin:0 0 8px">Opening hours</h4>
+          <div class="muted">Mon–Sun: 8:00 – 22:00</div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <h4 style="margin-top:0">Map</h4>
+        <div style="width:100%;height:200px;border-radius:8px;background:linear-gradient(180deg,#e6eef3,#f8fafb);display:flex;align-items:center;justify-content:center;color:var(--muted)">Map Placeholder</div>
+      </aside>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="grid">
+          <div>
+            <strong>Medical Centre</strong>
+            <p class="muted">Quality care, close to home.</p>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">© 2025 Medical Centre</div>
+            <div style="margin-top:8px"><a href="#" style="color:var(--muted);text-decoration:none">Privacy</a> • <a href="#" style="color:var(--muted);text-decoration:none">Terms</a></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // simple UX: scroll to top on logo click
+    document.querySelector('.logo').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  </script>
+</body>
+</html>
